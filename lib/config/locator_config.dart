@@ -1,10 +1,10 @@
 import 'package:flutter/foundation.dart';
+import 'package:guidedtour/config/route_config.dart';
 import 'package:guidedtour/core/utils/http/http_abstraction.dart';
 import 'package:guidedtour/core/utils/http/http_interceptor.dart';
-import 'package:guidedtour/config/route_config.dart';
+import 'package:guidedtour/core/utils/internal_notification/notify_service.dart';
 import 'package:guidedtour/core/utils/locator.dart';
 import 'package:guidedtour/core/utils/navigation/router_service.dart';
-import 'package:guidedtour/core/utils/internal_notification/notify_service.dart';
 
 final modules = [
   Module<RouterService>(

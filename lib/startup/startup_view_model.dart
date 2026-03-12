@@ -2,9 +2,11 @@ import 'dart:async';
 
 import 'package:flutter/foundation.dart';
 import 'package:guidedtour/config/locator_config.dart';
-import 'package:guidedtour/core/utils/locator.dart';
 import 'package:guidedtour/core/abstractions/logging_abstraction.dart';
+import 'package:guidedtour/core/utils/locator.dart';
 import 'package:logging/logging.dart';
+
+import '../core/utils/navigation/router_service.dart';
 
 /// Represents different states of app initialization
 sealed class AppState {
@@ -40,6 +42,7 @@ class StartupViewModel {
     try {
       locator.registerMany(modules);
       loggingSubscription = _loggingAbstraction.initializeLogging();
+      locator<RouterService>().go('/todos');
       appStateNotifier.value = const AppInitialized();
     } catch (e, st) {
       appStateNotifier.value = AppInitializationError(e, st);
